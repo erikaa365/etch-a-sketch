@@ -8,40 +8,39 @@
     <title>Etch-a-sketch</title>
 </head>
 <body>
-    
-    <div id="container"></div>
+    <div class="header"></div>
 
-    <script>
-        const container = document.getElementById('container');
-        let rows = document.getElementsByClassName('gridRow');
-        let cells = document.getElementsByClassName('cell');
-
-        function defaultGrid(){
-            makeRows(16);
-            makeColumns(16);
-        }
-
-        function makeRows(rowNum){
-            for(r = 0; r < rowNum; r++){
-                let row = document.createElement('div');
-                container.appendChild(row).className = 'gridRow';
-            }
-        }
-            
-        function makeColumns(cellNum){
-            for(i = 0; i < rows.length; i++){
-                for(j = 0; j < cellNum; j++){
-                    let newCell = document.createElement('div');
-                    rows[j].appendChild(newCell).className = 'cell';
-                }
-            }
-        }
-
+    <div class="title">Etch-a-sketch</div>
         
+    <div class="body">
+        <div class="body_left">
+            <div class="body_left_header">COLOR</div>
+            <div class="color_picker">
+                <button class="black">Black</button>
+                <button class="pick">Pick a color</button>
+                <button class="rainbow">Rainbow</button>
+            </div>
+            <div class="erase">
+                <button class="eraser">Eraser</button>
+                <button class="clear">Clear</button>
+            </div>
+            <div class="sizing">
+                <div class="body_left_header">SIZE</div>
+                <div class="current_size">size</div>
+                <div class="pick_size">size</div>
+            </div>
+        </div>
 
-        defaultGrid();
+        <div class="body_right">
+            <div id="grid"></div>
+        </div>
+    </div>
 
-    </script>
+    <div class="footer">footer</div>
+
+
+
+    <script src="./script.js"></script>
 
 </body>
 </html>
