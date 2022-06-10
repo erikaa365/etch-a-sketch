@@ -1,6 +1,6 @@
 const grid = document.getElementById('grid');
 let rows = document.getElementsByClassName('gridRow');
-let cells = document.getElementsByClassName('cell');
+
 
 function makeGrid(size){
     makeRows(size);
@@ -23,4 +23,5 @@ function makeColumns(cellNum){
     }
 }
 
-makeGrid(16);
+
+makeGrid(20);
