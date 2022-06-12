@@ -11,8 +11,6 @@ function makeGrid(size){
     makeRows(size);
     makeColumns(size);
     updateSizeValue();
-    //console.log(cells);
-    //console.log(cells.length);
 }
 
 function makeRows(rowNum){
@@ -34,25 +32,30 @@ function makeColumns(cellNum){
 }
 
 //Button actions//
-const blackbtn = document.getElementById('black');
-const pickbtn = document.getElementById('input_color');
-const rainbowbtn = document.getElementById('rainbow');
-const eraserbtn = document.getElementById('eraser');
-const clearbtn = document.getElementById('clear');
+const blackBtn = document.getElementById('black');
+const pickColor = document.getElementById('input_color');
+const pickBtn = document.getElementById('pick');
+const rainbowBtn = document.getElementById('rainbow');
+const eraserBtn = document.getElementById('eraser');
+const clearBtn = document.getElementById('clear');
 const slider = document.getElementById('pick_size');
 
-blackbtn.onclick = () => setCurrentMode('black');
-rainbowbtn.onclick = () => setCurrentMode('rainbow');
-pickbtn.onchange = (e) => setCurrentMode(e.target.value);
-eraserbtn.onclick = () => setCurrentMode('#CEEFDA')
-clearbtn.onclick = () => clearGrid();
+blackBtn.onclick = () => setCurrentMode('black');
+rainbowBtn.onclick = () => setCurrentMode('rainbow');
+pickColor.onchange = (e) => pickNewColor(e.target.value);
+eraserBtn.onclick = () => setCurrentMode('#CEEFDA')
+clearBtn.onclick = () => clearGrid();
 slider.onmousemove = (e) => updateSizeValue(e.target.value);
 slider.onchange = (e) => changeSize(e.target.value);
 
 
 function setCurrentMode(newMode){
     currentMode = newMode;
-    console.log(currentMode);
+}
+
+function pickNewColor(newMode){
+    currentMode = newMode;
+    pickBtn.style.backgroundColor = currentMode;
 }
 
 function clearGrid(){
