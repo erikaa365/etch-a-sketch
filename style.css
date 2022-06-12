@@ -88,6 +88,7 @@ button{
     flex-direction: column;
     width: 480px;
     height: 480px;
+    border: 1px solid black;
 }
 
 .cell{

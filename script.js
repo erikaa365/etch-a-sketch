@@ -1,8 +1,8 @@
 const grid = document.getElementById('grid');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.getElementsByClassName('cell');
-let resolution = 28; 
 
+let resolution = 34; 
 let currentColor = '';
 let currentMode = '';
 
@@ -10,8 +10,9 @@ let currentMode = '';
 function makeGrid(size){
     makeRows(size);
     makeColumns(size);
-    console.log(cells);
-    console.log(cells.length);
+    updateSizeValue();
+    //console.log(cells);
+    //console.log(cells.length);
 }
 
 function makeRows(rowNum){
@@ -34,21 +35,24 @@ function makeColumns(cellNum){
 
 //Button actions//
 const blackbtn = document.getElementById('black');
-const pickbtn = document.getElementById('pick');
+const pickbtn = document.getElementById('input_color');
 const rainbowbtn = document.getElementById('rainbow');
 const eraserbtn = document.getElementById('eraser');
 const clearbtn = document.getElementById('clear');
+const slider = document.getElementById('pick_size');
 
 blackbtn.onclick = () => setCurrentMode('black');
 rainbowbtn.onclick = () => setCurrentMode('rainbow');
-//pickbtn.onclick = () => setCurrentMode('pickColor);
+pickbtn.onchange = (e) => setCurrentMode(e.target.value);
 eraserbtn.onclick = () => setCurrentMode('#CEEFDA')
 clearbtn.onclick = () => clearGrid();
+slider.onmousemove = (e) => updateSizeValue(e.target.value);
+slider.onchange = (e) => changeSize(e.target.value);
 
 
-
-function setCurrentMode(value){
-    currentMode = value;
+function setCurrentMode(newMode){
+    currentMode = newMode;
+    console.log(currentMode);
 }
 
 function clearGrid(){
@@ -56,8 +60,16 @@ function clearGrid(){
     makeGrid(resolution);
 }
 
+function changeSize(newSize){
+    updateSizeValue(newSize);
+    resolution = newSize;
+    clearGrid();
+}
+
 //Size section
-document.getElementById('current_size').textContent = resolution + 'x' + resolution;
+function updateSizeValue(){
+    document.getElementById('current_size').textContent = resolution + 'x' + resolution;
+}
 
 //Drawing//
 let mouseDown = false;
@@ -74,10 +86,6 @@ function draw(e){
         const g = Math.floor(Math.random() * 256);
         let rainbow = `rgb(${r}, ${g}, ${b})`;
         e.target.style.backgroundColor = rainbow;
-    }
-
-    if(currentMode == 'pickColor'){
-
     }
 
     else{
