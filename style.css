@@ -140,8 +140,8 @@ button{
   }
 
 button:hover {
-  background-color: #2EE59D;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  background-color: #bdd2a6;
+  box-shadow: 0px 15px 20px rgba(47, 34, 53, 0.8);
   transform: translateY(-5px);
 }
 
