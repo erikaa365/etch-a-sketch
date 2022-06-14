@@ -43,7 +43,7 @@ const slider = document.getElementById('pick_size');
 blackBtn.onclick = () => setCurrentMode('black');
 rainbowBtn.onclick = () => setCurrentMode('rainbow');
 pickColor.onchange = (e) => pickNewColor(e.target.value);
-eraserBtn.onclick = () => setCurrentMode('#CEEFDA')
+eraserBtn.onclick = () => setCurrentMode('#F2EFF4')
 clearBtn.onclick = () => clearGrid();
 slider.onmousemove = (e) => updateSizeValue(e.target.value);
 slider.onchange = (e) => changeSize(e.target.value);
